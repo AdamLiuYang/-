@@ -1,14 +1,14 @@
 package com.hkq.controller.user;
 
-import com.hkq.services.UserServices;
-import com.hkq.services.UserServicesImpi;
-import com.hkq.util.FormParam;
-
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+
+import com.hkq.services.UserServices;
+import com.hkq.services.UserServicesImpi;
+import com.hkq.util.FormParam;
 
 /**
  * 用户注册Controller

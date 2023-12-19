@@ -1,10 +1,10 @@
 package com.hkq.dao;
 
-import com.hkq.model.Admin;
-
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
+
+import com.hkq.model.Admin;
 
 /**
  * @author hkq

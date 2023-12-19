@@ -1,5 +1,8 @@
 package com.hkq.services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.hkq.dao.AdminDao;
 import com.hkq.dao.AdminDaoImpi;
 import com.hkq.dao.UserDao;
@@ -7,12 +10,10 @@ import com.hkq.dao.UserDao.Type;
 import com.hkq.dao.UserDaoImpi;
 import com.hkq.model.Admin;
 import com.hkq.model.Schedule;
+import com.hkq.model.Toilet;
 import com.hkq.model.User;
 import com.hkq.util.DigestUtils;
 import com.hkq.util.UserPaging;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * AdminServices接口实现类
@@ -112,7 +113,7 @@ public class AdminServicesImpi implements AdminServices {
             throw new RuntimeException("分页大小为" + pageSize + "，至少应为1");
         }
 
-        Type type = Type.ID;
+        UserDao.Type type = Type.ID;
         if (searchBy == SEARCH_BY_ID) {
             type = Type.ID;
         } else if (searchBy == SEARCH_BY_NAME) {
@@ -156,5 +157,20 @@ public class AdminServicesImpi implements AdminServices {
     @Override
     public List<Schedule> searchAllSchedule() {
         return userDao.searchAllSchedule();
+    }
+
+    @Override
+    public List<Toilet> searchAllToilet() {
+        return userDao.searchAllToilet();
+    }
+
+    @Override
+    public void updateToilet(String id, String sex) {
+        userDao.updateToilet(id, sex);
+    }
+
+    @Override
+    public void updateToilet(String id, String handScope, String napkin) {
+        userDao.updateToilet(id, handScope, napkin);
     }
 }

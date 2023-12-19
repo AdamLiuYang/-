@@ -1,15 +1,16 @@
 package com.hkq.dao;
 
-import com.hkq.model.Schedule;
-import com.hkq.model.User;
-import com.hkq.util.UUIDUtil;
-
-import java.sql.SQLException;
-import java.sql.Types;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.sql.SQLException;
+import java.sql.Types;
+
+import com.hkq.model.Schedule;
+import com.hkq.model.Toilet;
+import com.hkq.model.User;
+import com.hkq.util.UUIDUtil;
 
 public class UserDaoImpi implements UserDao {
     @Override
@@ -103,6 +104,37 @@ public class UserDaoImpi implements UserDao {
     }
 
     @Override
+    public List<Toilet> searchAllToilet() {
+        String sql = "select * from toilet";
+        try {
+            List<Map<String, Object>> list = DBUtil.executeQuery(sql, new Object[]{});
+            return toToilet(list);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void updateToilet(String id, String sex) {
+        String sql = "update toilet set sex='" + sex + "' where id='" + id + "'";
+        try {
+            DBUtil.executeUpdate(sql, new Object[]{});
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void updateToilet(String id, String handScope, String napkin) {
+        String sql = "update toilet set hand_scope='" + handScope + "',napkin='" + napkin + "' where id='" + id + "'";
+        try {
+            DBUtil.executeUpdate(sql, new Object[]{});
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public List<Schedule> searchAllSchedule() {
         String sql = "select * from schedule";
         try {
@@ -111,7 +143,6 @@ public class UserDaoImpi implements UserDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     @Override
@@ -310,6 +341,28 @@ public class UserDaoImpi implements UserDao {
             return null;
         }
         return ((String) o).trim();
+    }
+
+    private List<Toilet> toToilet(List<Map<String, Object>> table) {
+        List<Toilet> result = new ArrayList<>();
+        if (table == null) {
+            return result;
+        }
+
+        Iterator<Map<String, Object>> iter = table.iterator();
+        while (iter.hasNext()) {
+            result.add(toToilet(iter.next()));
+        }
+        return result;
+    }
+
+    private Toilet toToilet(Map<String, Object> record) {
+        String id = toStringAndTrime(record.get("id"));
+        String toiletName = toStringAndTrime(record.get("toilet_name"));
+        String sex = toStringAndTrime(record.get("sex"));
+        String handScope = toStringAndTrime(record.get("hand_scope"));
+        String napkin = toStringAndTrime(record.get("napkin"));
+        return new Toilet(id, toiletName, sex, handScope, napkin);
     }
 
     private List<Schedule> toSchedule(List<Map<String, Object>> table) {

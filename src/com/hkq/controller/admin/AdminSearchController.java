@@ -1,16 +1,17 @@
 package com.hkq.controller.admin;
 
-import com.hkq.services.AdminServices;
-import com.hkq.services.AdminServicesImpi;
-import com.hkq.util.FormParam;
-import com.hkq.util.UserPaging;
+import java.io.IOException;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+
+import com.hkq.services.AdminServices;
+import com.hkq.services.AdminServicesImpi;
+import com.hkq.util.FormParam;
+import com.hkq.util.UserPaging;
 
 /**
  * 搜索用户Controller

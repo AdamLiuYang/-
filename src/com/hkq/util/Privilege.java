@@ -4,8 +4,8 @@ public class Privilege {
 
     // 用户只能访问的路径
     private static final String[] userServletPathes = {
-            "/login", "/LoginController", "/LogoutController", "/home", "/userSign",
-            "/change_pass", "/change_info", "/ChangePassController", "/ChangeInfoController", "/UserSignController","/admin/ScheduleController"
+            "/login", "/LoginController", "/LogoutController", "/home", "/userSign", "/changeToilet", "/changeToiletListController",
+            "/change_pass", "/change_info", "/ChangePassController", "/ChangeInfoController", "/UserSignController", "/admin/ScheduleController"
     };
     // 管理员只能访问的路径
     private static final String[] adminServletPathes = {
@@ -23,6 +23,11 @@ public class Privilege {
      */
     public static boolean canVisited(String servletPath, boolean isUser) {
         if ("".equals(servletPath)) {
+            return true;
+        }
+
+        //用户界面可以都访问
+        if (servletPath.equals("/user") || servletPath.equals("/toiletDetail")) {
             return true;
         }
 

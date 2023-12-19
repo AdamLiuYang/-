@@ -2,6 +2,7 @@ package com.hkq.services;
 
 import com.hkq.model.Admin;
 import com.hkq.model.Schedule;
+import com.hkq.model.Toilet;
 import com.hkq.util.UserPaging;
 
 import java.util.List;
@@ -88,4 +89,7 @@ public interface AdminServices {
 	public String updateSchedule(String userId,String date);
 
 	List<Schedule> searchAllSchedule();
+	List<Toilet> searchAllToilet();
+	void updateToilet(String id,String sex);
+	void updateToilet(String id,String handScope,String napkin);
 }

@@ -1,10 +1,16 @@
 package com.hkq.filter;
 
-import com.hkq.wrapper.MyCharacterEncodingRequest;
-
-import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+
+import com.hkq.wrapper.MyCharacterEncodingRequest;
 
 /**
  * 替换HttpServletRequest为自定义包装器MyCharacterEncodingRequest

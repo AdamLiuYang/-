@@ -11,7 +11,7 @@
     
     <form action="${pageContext.request.contextPath}/LoginController" method="post">
         <div class="elem">
-	        用户名：<br/><input type="text" name="id" ><br/>
+	        登录用户名：<br/><input type="text" name="id" ><br/>
 	    </div>
 	    <div class="elem">
 	        密码：<br/><input type="password" name="pass"><br/>

@@ -1,7 +1,18 @@
 package com.hkq.dao;
 
-import java.sql.*;
-import java.util.*;
+import java.sql.DriverManager;
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+
+import java.util.List;
+import java.util.Map;
+import java.util.ResourceBundle;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * 数据库操作工具类，提供以下方法<br/>

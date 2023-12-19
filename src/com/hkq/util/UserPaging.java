@@ -1,8 +1,8 @@
 package com.hkq.util;
 
-import com.hkq.model.User;
-
 import java.util.List;
+
+import com.hkq.model.User;
 
 /**
  * 用户分页对象

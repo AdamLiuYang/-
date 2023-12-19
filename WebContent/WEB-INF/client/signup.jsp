@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>清洁员注册界面</title>
+    <title>用户注册界面</title>
     <%@ include file="/WEB-INF/style.jsp" %>
 </head>
 
 <%@ include file="/WEB-INF/client/header.jsp" %>
     
-    <h3>清洁员注册</h3>
+    <h3>用户注册</h3>
     <form action="${pageContext.request.contextPath}/SignupController" method="POST">
         <div class="elem">
 	        用户名：<input type="text" name="id" /><br/>

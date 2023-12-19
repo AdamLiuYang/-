@@ -1,12 +1,18 @@
 package com.hkq.filter;
 
-import com.hkq.util.CookieSessionParam;
-import com.hkq.util.Privilege;
+import java.io.IOException;
 
-import javax.servlet.*;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
+
+import com.hkq.util.CookieSessionParam;
+import com.hkq.util.Privilege;
 
 /**
  * 权限过滤器，若没有权限访问，则重定向到主页

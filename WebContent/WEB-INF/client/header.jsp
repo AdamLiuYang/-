@@ -3,7 +3,7 @@
 
 <body id="client_body">
 	<div>
-	    <div class="web_logo">toilet management</div>
+	    <div class="web_logo">TinyWebsite</div>
 		
 		<c:choose>
 			<c:when test="${not empty sessionScope.self }">
@@ -13,7 +13,7 @@
 	            <a href="${pageContext.request.contextPath}/LogoutController" target="_self">退出</a>
 			</c:when>
 			<c:otherwise>
-			    欢迎你：员工
+			    欢迎你：清洁员
 		    </c:otherwise>
 		</c:choose>
 		

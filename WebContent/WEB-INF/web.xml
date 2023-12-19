@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          id="WebApp_ID" version="3.0">
 
-    <display-name>toilet management</display-name>
+    <display-name>TinyWebsite</display-name>
 
     <!-- web欢迎页、首页 -->
     <welcome-file-list>
@@ -91,7 +91,7 @@
     </error-page>
 
     <!-- JSP -->
-    <!-- 清洁员界面 -->
+    <!-- 用户界面 -->
     <servlet>
         <servlet-name>login</servlet-name>
         <jsp-file>/WEB-INF/client/login.jsp</jsp-file>
@@ -120,6 +120,41 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>userToilet</servlet-name>
+        <jsp-file>/WEB-INF/client/user.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>userToilet</servlet-name>
+        <url-pattern>/userToilet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ToiletListController</servlet-name>
+        <servlet-class>com.hkq.controller.admin.ToiletListController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ToiletListController</servlet-name>
+        <url-pattern>/user</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ChangeToiletListController</servlet-name>
+        <servlet-class>com.hkq.controller.admin.ChangeToiletListController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangeToiletListController</servlet-name>
+        <url-pattern>/changeToiletListController</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>toiletDetail</servlet-name>
+        <jsp-file>/WEB-INF/client/toiletDetail.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>toiletDetail</servlet-name>
+        <url-pattern>/toiletDetail</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>change_pass</servlet-name>
         <jsp-file>/WEB-INF/client/change_pass.jsp</jsp-file>
     </servlet>
@@ -136,7 +171,14 @@
         <servlet-name>change_info</servlet-name>
         <url-pattern>/change_info</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>changeToilet</servlet-name>
+        <jsp-file>/WEB-INF/client/change_toilet.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>changeToilet</servlet-name>
+        <url-pattern>/changeToilet</url-pattern>
+    </servlet-mapping>
     <!-- 管理员界面 -->
     <servlet>
         <servlet-name>admin_login</servlet-name>
@@ -183,7 +225,7 @@
         <url-pattern>/admin/schedule</url-pattern>
     </servlet-mapping>
     <!-- Controller -->
-    <!-- 清洁员 -->
+    <!-- 用户 -->
     <servlet>
         <servlet-name>SignupController</servlet-name>
         <servlet-class>com.hkq.controller.user.SignupController</servlet-class>
@@ -269,7 +311,7 @@
             <param-value>123456</param-value>   <!-- 设置重置密码，不设置为111111 -->
         </init-param>
         <init-param>
-            <param-name>deleteOn</param-name>   <!-- 设置删除清洁员功能是否开启(默认开启)，true开启，false关闭 -->
+            <param-name>deleteOn</param-name>   <!-- 设置删除用户功能是否开启(默认开启)，true开启，false关闭 -->
             <param-value>true</param-value>
         </init-param>
     </servlet>
